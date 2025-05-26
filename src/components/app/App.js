@@ -118,7 +118,8 @@ const namehandler = () => {
 
     
      <Card
-      nameslist = {namehandler()} 
+      // nameslist = {namehandler()} 
+      nameslist = { boys.filter((boy) => boy.name.includes(searchfilter))}  testdelete = {deleteitem}
       type="Boys"   /> 
       </div>
       <h2>List of Girls</h2>
