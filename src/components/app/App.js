@@ -1,13 +1,16 @@
 import React , {useState , useRef}  from 'react';
 import Filters from '../Filters/Filters.js';
+
 // import { type } from '@testing-library/user-event/dist/type';
  
 
 import Card from '../Card/Card.js';
 import './App.css';
+import Modal from '../Card/Modal/Modal.js';
 // import { useState } from 'react';
 const App  = ( ) => {
  const [searchfilter, setSearch] = useState('');
+ const [showModal, setShowModal] = useState(false);
   const [showcard, setShow] = useState(false);
   const [boys, setName] = useState([
    { name: 'ali',
@@ -108,12 +111,14 @@ const namehandler = () => {
   return (
     
     <div  className = "title"  >
+     <Modal show={showModal} onClose={() => setShowModal(false)}/>
+    
       <h1  >My App </h1>
       <h2>List of Boys</h2>
       <Filters filtersearch = {filtername }   />
       {/* <input type="text" ref={inputRef} placeholder="Enter name" onChange={()=> console.log(inputRef.current.value)} /> */}
-  
-      <button onClick={() => setShow(!showcard)}>{showcard ? 'Hide' : 'Show'}</button>
+     <button className='custom-button' onClick={() => setShowModal(true)}>Show Modal</button>
+      <button className='custom-button' onClick={() => setShow(!showcard)}>{showcard ? 'Hide' : 'Show'}</button>
      <div className= {showcard ? "show" : "hide"} >
 
     
@@ -122,6 +127,7 @@ const namehandler = () => {
       nameslist = { boys.filter((boy) => boy.name.includes(searchfilter))}  testdelete = {deleteitem}
       type="Boys"   /> 
       </div>
+     
       <h2>List of Girls</h2>
      {/* <Card nameslist = {girls} type='Girls' />  */}
     
