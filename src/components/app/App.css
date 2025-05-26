@@ -1,0 +1,19 @@
+
+.title h2 {
+    font-size: 2rem;
+    color: brown;
+    text-align: center;
+    margin: 20px 0;
+   
+    background-color: #f0f0f0;
+}
+
+.show{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.hide {
+    display: none;
+}
