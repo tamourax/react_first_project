@@ -90,29 +90,36 @@ const App  = ( ) => {
 //   ]
   
   
-const filtersearch =  (name) => {
-  return  setSearch(name); ;
-  // const filtered = boys.filter((boy) => boy.name === name);
-  // setName(filtered);
-}
-const namehandler = (name) => {
-  console.log(searchfilter);
-  return setName;}
-  
+// const filtersearch =  (name) => {
+//   return  setSearch(name); ;
+//   // const filtered = boys.filter((boy) => boy.name === name);
+//   // setName(filtered);
+// }
+const filtername = (name) => {
+  setSearch(name);}
+const namehandler = () => { 
+  if (searchfilter === '') {
+    return boys;
+  } else {
+    return boys.filter((boy) => boy.name.includes(searchfilter));
+  }
+} 
   
   return (
     
     <div  className = "title"  >
       <h1  >My App </h1>
       <h2>List of Boys</h2>
-      <Filters filtersearch = {namehandler}   />
+      <Filters filtersearch = {filtername }   />
       {/* <input type="text" ref={inputRef} placeholder="Enter name" onChange={()=> console.log(inputRef.current.value)} /> */}
   
       <button onClick={() => setShow(!showcard)}>{showcard ? 'Hide' : 'Show'}</button>
      <div className= {showcard ? "show" : "hide"} >
 
     
-     <Card nameslist = {boys} testdelete = { deleteitem  } type="Boys"   /> 
+     <Card
+      nameslist = {namehandler()} 
+      type="Boys"   /> 
       </div>
       <h2>List of Girls</h2>
      {/* <Card nameslist = {girls} type='Girls' />  */}

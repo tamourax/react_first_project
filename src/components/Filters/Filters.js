@@ -7,7 +7,7 @@ const Filters = ({filtersearch}) => {
     const filterhandler = (event) => {
         setName(event.target.value);
         filtersearch(event.target.value);
-        // console.log(event.target.value);
+         // console.log(event.target.value);
         // console.log(name);
     }
     //  const inputRef = useRef(null);
